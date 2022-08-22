@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background-color:rgb(119, 216, 23);
+    padding: 2rem;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    
+}
+
+#subtitle{
+    font-size: 1rem;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#marcador{
+    margin-top: 2rem;
+    margin-left: 25%;
+    text-align: center;
+    padding: 2rem;
+    width: 50%;
+    border: 5px black solid;
+    border-radius: 20px;
+    
+    
+
+
+}

@@ -101,59 +101,59 @@ function mostrarGastos (array) {
     }
 }
 
-//Definir Limite de Gasto
-let limite = 0;
-//Iniciar las variables que vamos a utilizar
-let gasto = 0;
-const resumen = [];
-let resumenApr = [];
-let resumenRech = [];
-
 // Funcion Menu
 function menu () {
     return console.log("Opciones" + "\n1) Establecer Limite de Gasto" + "\n2) Ingresar nuevo Gasto" + "\n3) Ver/Emilinar Gastos" + "\n4) Procesar Gastos" + "\n5) Mostrar Gastos" + "\n0) Salir");
 }
 
 // Algortimo Menu de opciones
+function menuOpciones () {
 
-alert("Bienvenido al sistema de Ahorro CASH SAVER" + "\nRecuerde abrir la consola para visualizar las opciones");
-
-menu()
-let opc = prompt("Seleccione la opción deseada");
-
-while (opc != "0") {
-    switch (opc){
-        case "1" :
-            console.log("1) Establecer Limite de Gasto");
-            //Definir Limite de Gasto
-            limite = prompt("Ingrese su limite de Gasto");
-            break
-        case "2" :
-            console.log("2) Ingresar nuevo Gasto");
-            nvoGasto(resumen);
-            break
-        case "3" :
-            console.log("3) Ver/Emilinar Gastos");
-            verResumen (resumen);
-            modificarResumen (resumen);
-            break
-        case "4" :
-            if (limite == 0) { 
-                alert("No se ha ingresado el limite de Gasto. Por favor, ingreselo")
-            } else {
-                console.log("4) Procesar Gastos");
-                procesarGastos(resumen, resumenApr, resumenRech)
-            }
-            break
-        case "5" :
-            mostrarGastos (resumen);
-            break 
-        default :
-            alert("No se ha ingresado una opcion correcta")
-            break
-    }
+    alert("Bienvenido al sistema de Ahorro CASH SAVER" + "\nRecuerde abrir la consola para visualizar las opciones");
+    
     menu()
-    opc = prompt("Seleccione la opción deseada");
+    let opc = prompt("Seleccione la opción deseada");
+    
+    while (opc != "0") {
+        switch (opc){
+            case "1" :
+                console.log("1) Establecer Limite de Gasto");
+                //Definir Limite de Gasto
+                limite = prompt("Ingrese su limite de Gasto");
+                break
+                case "2" :
+                    console.log("2) Ingresar nuevo Gasto");
+                    nvoGasto(resumen);
+                    break
+                    case "3" :
+                        console.log("3) Ver/Emilinar Gastos");
+                        verResumen (resumen);
+                        modificarResumen (resumen);
+                        break
+                        case "4" :
+                            if (limite == 0) { 
+                                alert("No se ha ingresado el limite de Gasto. Por favor, ingreselo")
+                            } else {
+                                console.log("4) Procesar Gastos");
+                                procesarGastos(resumen, resumenApr, resumenRech)
+                            }
+                            break
+                            case "5" :
+                                mostrarGastos (resumen);
+                                break 
+                                default :
+                alert("No se ha ingresado una opcion correcta")
+                break
+            }
+            menu()
+            opc = prompt("Seleccione la opción deseada");
+    }    
+    alert("Saliendo")
 }
 
-alert("Saliendo")
+//Definir Limite de Gasto
+let limite = 0;
+let gasto = 0;
+const resumen = [];
+let resumenApr = [];
+let resumenRech = [];

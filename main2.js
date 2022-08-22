@@ -3,7 +3,7 @@
 // console.log(div.innerHTML);
 // console.log(parrafo.innerHTML);
 
-let container = document.getElementById("contenedor");
+/*let container = document.getElementById("contenedor");
 // cambio el código HTML interno
 container.innerHTML = "<h2>Hola mundo!</h2><p>Lorem ipsum</p>";
 
@@ -50,4 +50,21 @@ for (const producto of productos) {
                             <p>  Producto: ${producto.nombre}</p>
                             <b> $ ${producto.precio}</b>`;
     document.body.appendChild(contenedor);
+}*/
+function respuestaLimite () {
+    limite = prompt("Ingrese su limite de Gasto");
+    console.log("Limite de Gasto: $" + limite)
+
+    let contenedor = document.getElementById("marcador");
+    let mostrarLimite = document.createElement("p");
+    mostrarLimite.innerHTML = `<p>Limite Registrado!</p>
+                            <p>$${limite}</p>`;
+    contenedor.appendChild(mostrarLimite);
+    // let marcador = document.getElementById("marcador");
+    // .append(contenedor)
 }
+
+
+let botonLimite = document.getElementById("regisLimit");
+botonLimite.addEventListener("click", respuestaLimite);
+
