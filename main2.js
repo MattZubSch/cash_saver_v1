@@ -51,6 +51,123 @@ for (const producto of productos) {
                             <b> $ ${producto.precio}</b>`;
     document.body.appendChild(contenedor);
 }*/
+
+//Crear la clase "Gastos"
+class Gasto {
+    constructor(id, nombre, monto) {
+        this.id = id;
+        this.nombre = nombre;
+        this.monto = monto;
+    }
+    elemCreado(){
+        console.log("Se ha creado un objeto: Gasto" + "\nID: " + this.id + "\nRazon: " + this.nombre + "\nMonto: " + this.monto)
+    }
+}
+
+function chequearLimite () {
+    if (limite != 0) {
+        mostrarLimite.remove();
+        console.log("limite != 0")
+    }
+    console.log("limite == 0")
+    respuestaLimite()
+};
+
+function respuestaLimite () {
+    limite = prompt("Ingrese su limite de Gasto");
+    console.log("Limite de Gasto: $" + limite)
+
+    // let contenedor = document.getElementById("marcador");
+    // let mostrarLimite = document.createElement("p");
+    mostrarLimite.innerHTML = `<p>Limite Registrado!</p>
+                            <b>$${limite}</b>`;
+    contenedor.appendChild(mostrarLimite);
+    // let marcador = document.getElementById("marcador");
+    // .append(contenedor)
+};
+
+let limite = 0;
+let contenedor = document.getElementById("marcadorLimite");
+let mostrarLimite = document.createElement("p");
+
+let botonLimite = document.getElementById("regisLimit");
+botonLimite.addEventListener("click", chequearLimite);
+
+let resumenMovAct = [];
+let resumenMovTot = [];
+let flagInicio = false;
+let tablaResumen = document.getElementById("tabla1");
+// let filaResumen;
+
+function chequearResumen () {
+    if (flagInicio == false) {
+        flagInicio = true;
+    } else {
+        tablaResumen.remove()    
+    }
+    mostrarResumen()
+}
+
+function mostrarResumen () {
+    let tablaResumen = document.getElementById("tabla1");
+    for (const mov of resumenMovAct) {
+        filaResumen = document.createElement("tr");
+        filaResumen.innerHTML = `<td>${mov.id}</td>
+                                <td>${mov.nombre}</td>
+                                <td>${mov.monto}</td>`;
+        tablaResumen.append(filaResumen);
+        console.log(resumenMovAct.length);
+    }
+}
+
+// function mostrarResumen () {
+
+//     filaResumen = document.createElement("tr");
+//     filaResumen.innerHTML = `<td>${mov.id}</td>
+//                             <td>${mov.nombre}</td>
+//                             <td>${mov.monto}</td>`;
+//     tablaResumen.appendChild(filaResumen);
+//     console.log(resumenMovAct.length);
+// }
+
+
+//funcion para crear nuevos gastos
+function nvoGasto (e) {
+    e.preventDefault();
+    // let formulario = e.target;
+    let id = resumenMovTot.length
+    let inputNom = document.getElementById("nombreForm");
+    let nom = inputNom.value;
+    let inputMonto = document.getElementById("montoForm");
+    let monto = inputMonto.value;
+    // let id = resumenMovTot.length
+    const gasto1 = new Gasto (id, nom, monto);
+    resumenMovAct.push(gasto1);
+    resumenMovTot.push(gasto1)
+    gasto1.elemCreado();
+    // mostrarResumen();
+    // filaResumen = document.createElement("tr");
+    // filaResumen.innerHTML = `<td>${id}</td>
+    //                         <td>${nom}</td>
+    //                         <td>${monto}</td>`;
+    // tablaResumen.appendChild(filaResumen);
+}
+
+let formCarga = document.getElementById("formulario");
+formCarga.addEventListener("submit", nvoGasto)
+
+
+
+function borrar (){
+    tablaResumen.remove()
+    let tablaResumen = document.getElementById("tabla1");
+}
+
+let botonBorrar = document.getElementById("del");
+botonBorrar.addEventListener("click", borrar);
+let botonAct = document.getElementById("act");
+botonAct.addEventListener("click", mostrarResumen);
+/*
 function respuestaLimite () {
     limite = prompt("Ingrese su limite de Gasto");
     console.log("Limite de Gasto: $" + limite)
@@ -68,3 +185,21 @@ function respuestaLimite () {
 let botonLimite = document.getElementById("regisLimit");
 botonLimite.addEventListener("click", respuestaLimite);
 
+
+function respuestaLimite () {
+    limite = prompt("Ingrese su limite de Gasto");
+    console.log("Limite de Gasto: $" + limite)
+
+    let contenedor = document.getElementById("marcador");
+    let mostrarLimite = document.createElement("p");
+    mostrarLimite.innerHTML = `<p>Limite Registrado!</p>
+                            <b>$${limite}</b>`;
+    contenedor.appendChild(mostrarLimite);
+
+};
+
+// let contenedorLimite = document.getElementById("marcador");
+// let limite = 0;
+let botonLimite = document.getElementById("regisLimit");
+botonLimite.addEventListener("click", respuestaLimite());
+*/

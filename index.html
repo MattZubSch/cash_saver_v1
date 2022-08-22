@@ -28,11 +28,50 @@
     </header>
 
     <main>
-        <div id="marcador">
+        <div id="marcadorLimite">
             <h2 id="subtitle">
                 Registrar Limite de gasto
             </h2>
             <button id="regisLimit">Registrar Limite</button>
+        </div>
+        <div id="panelMovimientos">
+            <div class="panel">    
+                <h2 id="subtitle">
+                    Ingresar Nuevo Movimiento
+                </h2>
+            </div>
+            <div class="panel">    
+                <h2 id="subtitle">
+                    Modificar Movimientos
+                </h2>
+            </div> 
+            <div class="panel">    
+                <h2 id="subtitle">
+                    Eliminar Movimientos
+                </h2>
+            </div>     
+        </div>
+        <div id="formDeCarga">
+            <form action="" id="formulario">
+                <input type="text" placeholder="Nombre de la Transaccion" id="nombreForm">
+                <input type="number" placeholder="Monto de la transaccion"id="montoForm">
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+        <div id="resumen">  
+            <table class="table table-dark table-striped">
+                <thead>
+                  <h2 class="mainTitle">Resumen de Gastos</h2>
+                </thead>
+                <tbody id="tabla1">
+                    
+                </tbody>
+            </table>
+
+        </div>
+        <div id="deleter">
+            <button id="del">Borrar</button>
+            <button id="act">Actualizar</button>
         </div>
     </main>
     

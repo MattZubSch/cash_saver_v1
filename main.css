@@ -18,7 +18,7 @@ header{
     font-family: 'Press Start 2P', cursive;
 }
 
-#marcador{
+#marcadorLimite{
     margin-top: 2rem;
     margin-left: 25%;
     text-align: center;
@@ -26,8 +26,21 @@ header{
     width: 50%;
     border: 5px black solid;
     border-radius: 20px;
-    
-    
+}
 
+#panelMovimientos {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 5%;
+}
 
+.panel{
+    /* overflow: auto; */
+    margin: 5%;
+    text-align: center;
+    padding: 2rem;
+    width: 20%;
+    border: 5px black solid;
+    border-radius: 20px; 
 }
