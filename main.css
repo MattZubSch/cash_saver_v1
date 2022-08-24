@@ -13,9 +13,16 @@ header{
     
 }
 
-#subtitle{
+#optionTitle{
     font-size: 1rem;
     font-family: 'Press Start 2P', cursive;
+}
+
+.subtitle{
+    font-size: 1.5rem;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    padding-bottom: 2rem;
 }
 
 #marcadorLimite{
@@ -36,11 +43,90 @@ header{
 }
 
 .panel{
-    /* overflow: auto; */
     margin: 5%;
     text-align: center;
     padding: 2rem;
     width: 20%;
     border: 5px black solid;
+    border-bottom: 8px black solid;
+    border-left: 8px black solid;
     border-radius: 20px; 
+    background-color: white;
+}
+
+.panelIng{
+    width: 20%;
+    margin: 2%;
+}
+
+#formDeCarga{
+    display: flexbox;
+    justify-content: center;
+    align-items: center;    
+
+}
+
+#formulario{
+    color: red;
+    display: flexbox;
+    text-align: center;
+    
+}
+
+#botonIngresar{
+    padding: 10px;
+    padding-top: 3px;
+    border-radius: 100px;
+
+}
+
+main{
+    margin: 5%;
+}
+
+#resumen{
+    margin-bottom: 5rem;
+}
+
+
+.btnSecundario{
+    padding: 1rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.75rem;
+    border-radius: 100px;
+    
+}
+
+.contenedorBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#formularioCarga{
+    display: flexbox;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+#formMod{
+    display: flexbox;
+    text-align: center;
+}
+
+#formularioMod{
+    display: flexbox;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+#formDel{
+    display: flexbox;
+    text-align: center;
+}
+
+#formularioDel{
+    display: flexbox;
+    text-align: center;
+    padding-bottom: 2rem;
 }

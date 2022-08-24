@@ -11,8 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <title>Document</title>
-    <script src="main2.js" defer></script>
+    <title>COIN SAVER</title>
+    <script src="main.js" defer></script>
 
 </head>
 <body>
@@ -27,52 +27,103 @@
         </div>
     </header>
 
-    <main>
-        <div id="marcadorLimite">
-            <h2 id="subtitle">
-                Registrar Limite de gasto
-            </h2>
-            <button id="regisLimit">Registrar Limite</button>
-        </div>
+    <div>
         <div id="panelMovimientos">
-            <div class="panel">    
-                <h2 id="subtitle">
+            <button class="panel" id="btnIngresarMov">
+                <h3 id="optionTitle">
                     Ingresar Nuevo Movimiento
-                </h2>
-            </div>
-            <div class="panel">    
-                <h2 id="subtitle">
+                </h3>
+            </button>
+            <button class="panel" id="btnModificarMov">
+                <h3 id="optionTitle">
                     Modificar Movimientos
-                </h2>
-            </div> 
-            <div class="panel">    
-                <h2 id="subtitle">
+                </h3>
+            </button>
+            <button class="panel" id="btnEliminarMov">
+                <h3 id="optionTitle">
                     Eliminar Movimientos
-                </h2>
-            </div>     
-        </div>
-        <div id="formDeCarga">
-            <form action="" id="formulario">
-                <input type="text" placeholder="Nombre de la Transaccion" id="nombreForm">
-                <input type="number" placeholder="Monto de la transaccion"id="montoForm">
-                <input type="submit" value="Enviar">
-            </form>
+                </h3>
+            </button>     
         </div>
         <div id="resumen">  
+            <h2 class="subtitle">
+                Resumen de Gastos
+            </h2>
             <table class="table table-dark table-striped">
                 <thead>
-                  <h2 class="mainTitle">Resumen de Gastos</h2>
+                    <tr>
+                        <td>ID</td>
+                        <td>NOMBRE</td>
+                        <td>MONTO</td>
+                    </tr>
                 </thead>
                 <tbody id="tabla1">
                     
                 </tbody>
             </table>
+        </div>
+        <h2 id="nvoMov" class="subtitle">
+            Ingresar Nuevo Movimiento
+        </h2>
+        <div class="contenedorBtn">
+            <button id="btnIngSecundario" class="btnSecundario">+</button>
+        </div>
+        <div id="formDeCarga">
 
         </div>
-        <div id="deleter">
-            <button id="del">Borrar</button>
-            <button id="act">Actualizar</button>
+        
+        <h2 id="modMov" class="subtitle">
+            Modificar Movimientos
+        </h2>
+        <div class="contenedorBtn">
+            <button id="btnModSecundario" class="btnSecundario">=</button>
         </div>
+        <div id="modificarMov">
+            <div id="formMod">
+
+            </div>
+            <div id="buscarIdMod">
+                
+            </div>
+            <div id="resumen">
+                <table class="table table-dark table-striped">
+                    <thead id="tableModTop">
+                        
+                    </thead>
+                    <tbody id="tabla2">
+                        
+                    </tbody>
+                </table>
+            </div>
+            <form action="" id="formularioMod">
+            
+            </form>
+        </div>
+        <h2 id="delMov" class="subtitle">
+            Eliminar Movimientos
+        </h2>
+        <div class="contenedorBtn">
+            <button id="btnDelSecundario" class="btnSecundario">x</button>
+        </div>
+        <div id="eliminarMov">
+            <div id="formDel">
+                
+            </div>
+            <div id="resumen">
+                <table class="table table-dark table-striped">
+                    <thead id="tableDelTop">
+                        
+                    </thead>
+                    <tbody id="tabla3">
+                        
+                    </tbody>
+                </table>
+            </div>
+            <form action="" id="formularioDel">
+            
+            </form>
+
+        
     </main>
     
 </body>
