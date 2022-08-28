@@ -9,11 +9,29 @@ class Gasto {
         console.log("Se ha creado un objeto: Gasto" + "\nID: " + this.id + "\nRazon: " + this.nombre + "\nMonto: " + this.monto)
     }
 }
+
 //inicializar variables globales
-let resumenMovAct = [];
-let resumenMovTot = [];
-let flagInicio = false;
-let tablaResumen = document.getElementById("tabla1");
+
+
+//Verificar si existen datos guardados, recuperarlos o crear el array
+const resumen = JSON.parse(localStorage.getItem('resumen')) || [];
+const resumenTotal = JSON.parse(localStorage.getItem('resumenTotal')) || [];
+//igualar el resumen guardado con el actual
+const resumenMovAct = resumen;
+const resumenMovTot = resumenTotal;
+
+//crear estructura para almacenar datos en el storage
+const almacenarDatos = (clave, valor) => { localStorage.setItem(clave, valor) };
+
+//Mostrar resumen en pantalla
+mostrarResumen();
+
+//Funcion para guardar los resumenes actualizados en la memoria del navegador
+function cargarDatos () {
+    almacenarDatos("resumen", JSON.stringify(resumenMovAct));
+    almacenarDatos("resumenTotal", JSON.stringify(resumenMovTot));
+}  
+
 
 //Detectar evento para iniciar la carga de movimientos
 let btnIng = document.getElementById("btnIngresarMov");
@@ -37,7 +55,6 @@ function crearPanelIng() {
 //funcion para crear nuevos gastos
 function nvoGasto (e) {
     e.preventDefault();
-    // let formulario = e.target;
     let id = resumenMovTot.length
     let inputNom = document.getElementById("nombreForm");
     let nom = inputNom.value;
@@ -54,6 +71,7 @@ function nvoGasto (e) {
 
 //Recargar el resumen con los movimientos actualizados
 function mostrarResumen () {
+    cargarDatos();
     let tablaResumen = document.getElementById("tabla1");
     tablaResumen.innerHTML = "";  
     for (const mov of resumenMovAct) {
@@ -62,7 +80,7 @@ function mostrarResumen () {
                                 <td>${mov.nombre}</td>
                                 <td>${mov.monto}</td>`;
         tablaResumen.append(filaResumen);
-        console.log(resumenMovAct.length);
+        
     }
 }
 
@@ -77,6 +95,8 @@ let btnMod = document.getElementById("btnModificarMov");
 btnMod.onclick = () =>{crearPanelMod()}
 let btnModSec = document.getElementById("btnModSecundario");
 btnModSec.onclick = () =>{crearPanelMod()}
+//bandera de modificacion
+//(esta se crea para que, en caso de no tipear nada, el evento no detecte un numero que no se queria)
 let flagIdMod = -1;
 
 //crear el panel de modificacion
@@ -136,6 +156,7 @@ function modificarMov(mov) {
 //detectar formulario para modificar el movimiento
 let panelMod = document.getElementById("formularioMod");
 panelMod.addEventListener("submit", aplicarMod);
+//setear busqueda a un valor que no pueda buscarse (al igual que con la banderas)
 let busqueda = -1;
 
 //modificar el objeto del array, actualizar el resumen y eliminar el panel
@@ -145,8 +166,8 @@ function aplicarMod(e) {
     let nom = inputNom.value;
     let inputMonto = document.getElementById("montoMod");
     let monto = inputMonto.value;
-    resumenMovTot[flagIdMod].nombre = nom;
-    resumenMovTot[flagIdMod].monto = monto;
+    resumenMovAct[flagIdMod].nombre = nom;
+    resumenMovAct[flagIdMod].monto = monto;
     mostrarResumen();
     deshacerPanelMod ();
     window.location.href = '#resumen';
@@ -169,6 +190,7 @@ let btnDel = document.getElementById("btnEliminarMov");
 btnDel.onclick = () =>{crearPanelDel()}
 let btnDelSec = document.getElementById("btnDelSecundario");
 btnDelSec.onclick = () =>{crearPanelDel()}
+//bandera de eliminacion
 flagIdDel = -1;
 
 //crear panel de Eliminacion de movimientos
